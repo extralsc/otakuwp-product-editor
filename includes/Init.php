@@ -22,6 +22,7 @@ class Init
     {
         new Store\Store();
         new Updater\Updater();
+        new Api\Api();
         new Admin\Admin();
         new Frontend\Frontend();
     }

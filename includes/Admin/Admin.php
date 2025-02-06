@@ -9,6 +9,7 @@ class Admin
     {
         add_action('admin_menu', [$this, 'add_admin_page']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_style_script']);
+        add_action('admin_enqueue_scripts', [$this, 'debug_enqueue_style_script']);
         add_action('init', [$this, 'product_editor_settings']);
 
     }
@@ -26,17 +27,34 @@ class Admin
         );
 
         add_submenu_page(
-            Store::TEXT_DOMAIN, 
+            Store::TEXT_DOMAIN,
             __('OtakuWP Settings', Store::TEXT_DOMAIN),
-            __('Settings', Store::TEXT_DOMAIN), 
-            'manage_options', 
-            Store::get_prefixed('settings'), 
-            [$this, 'render_settings_page'] 
+            __('Settings', Store::TEXT_DOMAIN),
+            'manage_options',
+            Store::get_prefixed('settings'),
+            [$this, 'render_settings_page']
         );
     }
 
     public function render_settings_page()
     {
+        $data = get_option(Store::OPTION_NAME);
+        var_dump($data);
+
+        printf(
+            '<div class="wrap" id="otakuwp-pe-app-debug">%s</div>',
+            esc_html__('Loading…', Store::TEXT_DOMAIN)
+        );
+        return;
+
+        echo '<h1>Settings</h1>';
+        echo '<p>This page is for debugging if the plugin is not working. Please enbale debug in order to show data.</p>';
+
+        // INSERT OPTION HERE "ENABLE DEBUG" WITH CHECKBOX AND SAVE IF YES SHOW HELLO WORLD BELOW
+// ECHO HELLO WORLD
+
+        die;
+
         echo 'hello';
         echo 'hello', '<hr/>';
 
@@ -120,8 +138,47 @@ class Admin
         }
     }
 
+    public function debug_enqueue_style_script($admin_page)
+    {
+        if ('product-editor_page_otakuwp_product_editor_settings' !== $admin_page) {
+            return;
+        }
+
+        $asset_file = OTAKUWP_PE_PLUGIN_DIR . '/build/debug.asset.php';
+
+        if (!file_exists($asset_file)) {
+            return;
+        }
+
+        $asset = include $asset_file;
+
+        wp_enqueue_script(
+            'otakuwp-product-editor-script-debug',
+            OTAKUWP_PE_PLUGIN_URL . '/build/debug.js',
+            $asset['dependencies'],
+            $asset['version'],
+            array(
+                'in_footer' => true,
+            )
+        );
+
+        wp_enqueue_style(
+            'otakuwp-product-editor-style-debug',
+            OTAKUWP_PE_PLUGIN_URL . '/build/debug.css',
+            array_filter(
+                $asset['dependencies'],
+                function ($style) {
+                    return wp_style_is($style, 'registered');
+                }
+            ),
+            $asset['version'],
+        );
+    }
+
+
     public function enqueue_style_script($admin_page)
     {
+
         if ('toplevel_page_otakuwp-product-editor' !== $admin_page) {
             return;
         }
@@ -195,6 +252,19 @@ class Admin
                 'show_in_rest' => array(
                     'schema' => $schema,
                 ),
+            )
+        );
+
+        register_setting(
+            'options',
+            Store::DEBUG_OPTION_NAME,
+            array(
+                'type' => 'boolean',
+                'default' => false,
+                'show_in_rest' => true,
+                'sanitize_callback' => function ($value) {
+                    return filter_var($value, FILTER_VALIDATE_BOOLEAN);
+                }
             )
         );
     }
