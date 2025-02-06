@@ -1,0 +1,30 @@
+{
+  "name": "otakuwp-product-editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start src/index.js src/debug.js",
+    "build": "wp-scripts build src/index.js src/debug.js",
+    "start:debug": "wp-scripts start src/debug.js  --output-path=debugBuild",
+    "build:debug": "wp-scripts build src/debug.js --output-path=debugBuild",
+    "lint": "wp-scripts lint"
+  },
+  "keywords": [],
+  "author": "Extralsc",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.17.0",
+    "@wordpress/components": "^29.3.0",
+    "@wordpress/data": "^10.17.0",
+    "@wordpress/dom-ready": "^4.17.0",
+    "@wordpress/element": "^6.17.0",
+    "@wordpress/i18n": "^5.17.0",
+    "@wordpress/icons": "^10.17.0",
+    "@wordpress/notices": "^5.17.0",
+    "@wordpress/private-apis": "^1.17.0",
+    "@wordpress/scripts": "^30.10.0",
+    "@wordpress/url": "^4.17.0"
+  }
+}
