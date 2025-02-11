@@ -1,0 +1,95 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/index.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+#otakuwp-product-editor-settings {
+  max-width: 800px;
+}
+#otakuwp-product-editor-settings h1 {
+  padding-block: 8px;
+}
+#otakuwp-product-editor-settings .components-base-control:has(textarea) {
+  flex-basis: 400px;
+}
+#otakuwp-product-editor-settings .components-notice, #otakuwp-product-editor-settings .components-notice__content {
+  margin: 0;
+}
+#otakuwp-product-editor-settings .components-notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block-end: 16px;
+}
+#otakuwp-product-editor-settings .components-panel {
+  margin-block-end: 8px;
+}
+
+#otakuwp-pe-app .otakuwp_main-header {
+  margin-bottom: 0.2em;
+}
+#otakuwp-pe-app .panel-row-help {
+  align-items: start;
+}
+#otakuwp-pe-app .panel-row-help.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10;
+}
+@media (max-width: 768px) {
+  #otakuwp-pe-app .panel-row-help.flex-container {
+    flex-direction: column;
+    flex: 1;
+    flex-grow: 2;
+    width: 100%;
+  }
+  #otakuwp-pe-app .panel-row-help.flex-container .col-1,
+  #otakuwp-pe-app .panel-row-help.flex-container .col-2 {
+    width: 100%;
+  }
+}
+#otakuwp-pe-app .panel-row-help .debug-info div.app-input-container {
+  margin-bottom: 1em;
+}
+#otakuwp-pe-app .panel-row-help .col-1 {
+  flex: 1;
+  flex-grow: 2;
+  flex-direction: column;
+}
+#otakuwp-pe-app .panel-row-help .col-1 div,
+#otakuwp-pe-app .panel-row-help .col-1 span,
+#otakuwp-pe-app .panel-row-help .col-1 input,
+#otakuwp-pe-app .panel-row-help .col-1 label,
+#otakuwp-pe-app .panel-row-help .col-1 button,
+#otakuwp-pe-app .panel-row-help .col-1 p {
+  font-size: 1em;
+}
+#otakuwp-pe-app .panel-row-help .col-2 {
+  flex: 1;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  justify-content: space-evenly;
+}
+#otakuwp-pe-app .panel-row-help .col-2 div,
+#otakuwp-pe-app .panel-row-help .col-2 span,
+#otakuwp-pe-app .panel-row-help .col-2 input,
+#otakuwp-pe-app .panel-row-help .col-2 label,
+#otakuwp-pe-app .panel-row-help .col-2 button,
+#otakuwp-pe-app .panel-row-help .col-2 p {
+  font-size: 1em;
+}
+#otakuwp-pe-app .panel-row-help .col-2 .hash-control {
+  background-color: white;
+  margin: 10px 0px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  padding: 15px 20px;
+}
+#otakuwp-pe-app .panel-row-help .col-2 .button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.2rem;
+}
+
+/*# sourceMappingURL=debug.css.map*/
